@@ -4,15 +4,17 @@ var CronJob = require('cron').CronJob;
 var clock = require('./clock.js');
 
 new CronJob({
-  cronTime: "1 35 17 * * *",
-  onTick: function() {client.makeCall({
+  cronTime: new Date('2015-09-26T17:43:30'),
+  onTick: function() {
+    client.makeCall({
     to:'+15864199473',
     from: '+15862001110',
     url: 'http://two-letter-study.appspot.com/static/twiml.xml'//going to be from the twiml
   })
   .then(function(call) {
       console.log('Call success! Call SID: '+call.sid);
-  }).then(null, console.log)},
+  }).then(null, console.log)
+},
   onComplete: function(){
     console.log('job finished');
   },
