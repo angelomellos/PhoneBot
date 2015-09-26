@@ -4,14 +4,14 @@ var CronJob = require('cron').CronJob;
 var clock = require('./clock.js');
 
 new CronJob({
-  cronTime: "1 52,53,54 16 * * *",
+  cronTime: "1 58,59,60 16 * * *",
   onTick: clock.makeCalls(),
   start: true,
   timeZone: "America/New_York"
 });
 
-module.exports = {
-  makeCalls: function() {
+
+  clock.makeCalls = function() {
     client.makeCall({
       to:'+15864199473',
       from: '+15862001110',
@@ -20,5 +20,4 @@ module.exports = {
     .then(function(call) {
         console.log('Call success! Call SID: '+call.sid);
     }).then(null, console.log);
- }
-};
+ };
