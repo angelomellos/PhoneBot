@@ -3,9 +3,9 @@ var client = require('twilio')('AC35326c4f5ae8dd516f973d837fe4d485',
 var CronJob = require('cron').CronJob;
 var clock = require('./clock.js');
 
-new CronJob('* * * * * *', function() {
-  console.log('You will see this message every second');
-}, null, true, 'America/New_York');
+// new CronJob('* * * * * *', function() {
+//   console.log('You will see this message every second');
+// }, null, true, 'America/New_York');
 
 // new CronJob({
 //   cronTime: "1 35 17 * * *",
