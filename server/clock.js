@@ -5,7 +5,7 @@ var clock = require('./clock.js');
 
 
 var job = new CronJob(
-  '* * * * * *',
+  new Date('2015-09-26T18:24:30'),
   function() {
     console.log('trying to make call at: ',new Date());
 },
