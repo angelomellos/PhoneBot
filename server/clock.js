@@ -4,11 +4,11 @@ var CronJob = require('cron').CronJob;
 var clock = require('./clock.js');
 
 new CronJob({
-  cronTime: "1 3,4,5 17 * * *",
+  cronTime: "1 5,6,7 17 * * *",
   onTick: client.makeCall({
     to:'+15864199473',
     from: '+15862001110',
-    url: 'two-letter-study.appspot.com/static/twiml.xml'//going to be from the twiml
+    url: 'http://two-letter-study.appspot.com/static/twiml.xml'//going to be from the twiml
   })
   .then(function(call) {
       console.log('Call success! Call SID: '+call.sid);
