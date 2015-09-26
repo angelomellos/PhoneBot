@@ -3,18 +3,20 @@ var client = require('twilio')('AC35326c4f5ae8dd516f973d837fe4d485',
 var CronJob = require('cron').CronJob;
 var clock = require('./clock.js');
 
-
+var threeMinutes = 180000;
+var inThreeMinutes = new Date(Date.now()+threeMinutes);
 var job = new CronJob(
-  new Date('2015-09-26T18:28:10'),
+  inThreeMinutes,
   function() {
     console.log('trying to make call at: ',new Date());
-    makeCalls();
+    client.makeCall({
+      to:'+15864199473',
+      from: '+15862001110',
+      url: 'http://localhost:1337/server/app/routes/calls/twiml.js'//going to be from the twiml
+    });
 },
-  function(){
-    console.log('job finished at: ', new Date());
-  },
-  true,
-  "America/New_York"
+  null,
+  true
 );
 
 
