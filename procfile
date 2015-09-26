@@ -1,0 +1,3 @@
+web: node server/start.js
+worker: node server/bot.js
+clock: node server/clock.js
