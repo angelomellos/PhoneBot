@@ -7,8 +7,6 @@ var job = new CronJob('* * * * * *', function() {
   console.log('You will see this message every second');
 }, null, false, 'America/New_York');
 
-job.start();
-
 // new CronJob({
 //   cronTime: "1 35 17 * * *",
 //   onTick: function() {
