@@ -5,19 +5,26 @@ var clock = require('./clock.js');
 
 new CronJob({
   cronTime: "1 58,59,60 16 * * *",
-  onTick: clock.makeCalls(),
+  onTick: client.makeCall({
+    to:'+15864199473',
+    from: '+15862001110',
+    url: 'http://localhost:1337/server/app/routes/calls/twiml.js'//going to be from the twiml
+  })
+  .then(function(call) {
+      console.log('Call success! Call SID: '+call.sid);
+  }).then(null, console.log),
   start: true,
   timeZone: "America/New_York"
 });
 
 
-  clock.makeCalls = function() {
-    client.makeCall({
-      to:'+15864199473',
-      from: '+15862001110',
-      url: 'http://localhost:1337/server/app/routes/calls/twiml.js'//going to be from the twiml
-    })
-    .then(function(call) {
-        console.log('Call success! Call SID: '+call.sid);
-    }).then(null, console.log);
- };
+ //  clock.makeCalls = function() {
+ //    client.makeCall({
+ //      to:'+15864199473',
+ //      from: '+15862001110',
+ //      url: 'http://localhost:1337/server/app/routes/calls/twiml.js'//going to be from the twiml
+ //    })
+ //    .then(function(call) {
+ //        console.log('Call success! Call SID: '+call.sid);
+ //    }).then(null, console.log);
+ // };
