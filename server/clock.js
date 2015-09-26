@@ -5,21 +5,15 @@ var clock = require('./clock.js');
 
 
 var job = new CronJob({
-  cronTime: new Date('2015-09-26T18:06:30'),
+  cronTime: new Date('2015-09-26T18:12:30'),
   onTick: function() {
     console.log('trying to make call at: ',new Date());
-    client.makeCall({
-    to:'+15864199473',
-    from: '+15862001110',
-    url: 'http://two-letter-study.appspot.com/static/twiml.xml'//going to be from the twiml
-  })
-  .then(function(call) {
-      console.log('Call success! Call SID: '+call.sid);
-  }).then(null, console.log)
+
 },
   onComplete: function(){
     console.log('job finished');
   },
+  false,
   timeZone: "America/New_York"
 });
 
