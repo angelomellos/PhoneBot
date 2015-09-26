@@ -4,9 +4,9 @@ var CronJob = require('cron').CronJob;
 var clock = require('./clock.js');
 
 
-var job = new CronJob({
-  cronTime: new Date('2015-09-26T18:14:30'),
-  onTick: function() {
+var job = new CronJob(
+  new Date('2015-09-26T18:18:30'),
+  function() {
     console.log('trying to make call at: ',new Date());
     client.makeCall({
     to:'+15864199473',
@@ -17,12 +17,12 @@ var job = new CronJob({
       console.log('Call success! Call SID: '+call.sid);
   }).then(null, console.log)
 },
-  onComplete: function(){
+  function(){
     console.log('job finished');
   },
-  start: true,
-  timeZone: "America/New_York"
-});
+  true,
+  "America/New_York"
+);
 
 
  //  clock.makeCalls = function() {
