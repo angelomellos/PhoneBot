@@ -4,7 +4,7 @@ var CronJob = require('cron').CronJob;
 var clock = require('./clock.js');
 
 new CronJob({
-  cronTime: "1 30 17 * * *",
+  cronTime: "1 30 19 * * *",
   onTick: client.makeCall({
     to:'+15864199473',
     from: '+15862001110',
