@@ -5,23 +5,23 @@ var clock = require('./clock.js');
 var client = require('twilio')('AC35326c4f5ae8dd516f973d837fe4d485',
 'c4ac1a1aace3333a3414904c3fa7f918');
 
-var threeMinutes = 120000;
-var inTwoMinutes = new Date(Date.now()+threeMinutes);
-var job = new CronJob(
-  inTwoMinutes,
-  function() {
-    console.log('trying to make call at: ',new Date());
-    client.makeCall({
-      to:'+15864199473',
-      from: '+15862001110',
-      url: 'http://two-letter-study.appspot.com/twiml'//going to be from the twiml
-    }).then(function(call){
-      console.log('Call success! Call SID: '+call.sid);
-    }).then(null, console.log)
-},
-  null,
-  true
-);
+// var threeMinutes = 120000;
+// var inTwoMinutes = new Date(Date.now()+threeMinutes);
+// var job = new CronJob(
+//   inTwoMinutes,
+//   function() {
+//     console.log('trying to make call at: ',new Date());
+//     client.makeCall({
+//       to:'+15864199473',
+//       from: '+15862001110',
+//       url: 'http://two-letter-study.appspot.com/twiml'//going to be from the twiml
+//     }).then(function(call){
+//       console.log('Call success! Call SID: '+call.sid);
+//     }).then(null, console.log)
+// },
+//   null,
+//   true
+// );
 
 
 var makeCalls = function() {

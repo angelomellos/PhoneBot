@@ -11,9 +11,8 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req,res,next){
   var callDate = new Date(req.body.date+'T'+req.body.time+':00');
-  Calls.create({number: 15864199473}).then(function(call){
-    console.log('saved to database number ',call);
-  });
+  console.dir(req.body.file);
+  //Calls.create({number: 15864199473});
   res.send('<p>Request Submitted</p>');
 });
 
