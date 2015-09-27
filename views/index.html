@@ -1,4 +1,9 @@
-<form method="post">
+<script src="angular.js"></script>
+<script src="app.js"></script>
+<body ng-app="PhoneBot" ng-controller="MainController">
+  <p ng-show="test">{{scope.test}}</p>
+  {{scope.test}}
+<form ng-submit="saveJob()" name="saveJob">
 <input name='url' type='url'></input>
 <br>
 <input name='date' type='date'></input>
@@ -9,6 +14,4 @@
 <br>
 <input type="submit" value="Submit">
 </form>
-<script src="/node_modules/angular/angular.js"></script>
-<script src="app.js"></script>
-<script src="main.controller.js"></script>
+</body>
