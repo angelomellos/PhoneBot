@@ -1,5 +1,4 @@
-var client = require('twilio')(process.env.TWILIO_ACCOUNT_SID,
-process.env.TWILIO_AUTH_TOKEN);
+var client = require('twilio')();
 var CronJob = require('cron').CronJob;
 var clock = require('./clock.js');
 

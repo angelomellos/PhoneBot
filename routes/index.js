@@ -4,7 +4,7 @@ var path = require('path');
 var mongoose = require('mongoose');
 var Calls = mongoose.model('Calls');
 var twilio = require('twilio');
-var client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+var client = twilio();
 var CronJob = require('cron').CronJob;
 var worker = require('../server/bot.js');
 
@@ -15,7 +15,6 @@ router.get('/', function(req, res, next) {
 
 router.get('/twiml',function(req, res, next){
   var twiml = new twilio.TwimlResponse();
-  console.log('twiml');
   twiml.play(req.query.recording);
   res.send(twiml.toString());
 });
