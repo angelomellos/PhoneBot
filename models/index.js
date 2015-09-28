@@ -5,7 +5,7 @@ mongoose.connection.on('error', console.error.bind(console, 'connection error:')
 
 var schema = new mongoose.Schema({
   number: {type:String, required: true, unique: true},
-  isDone: {type: Boolean},
+  isDone: {type: Boolean, default: false},
   time: {type: Date}
 });
 mongoose.model('Calls', schema);
