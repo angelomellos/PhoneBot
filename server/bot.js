@@ -12,7 +12,8 @@ module.exports = {
           client.makeCall({
             to: number.number,
             from: '+15862001110',
-            url: 'http://two-letter-study.appspot.com/static/twiml.xml'//going to be from the twiml generator
+            url: 'https://stormy-bayou-8964.herokuapp.com/twiml?recording=' +
+            number.url
           }).then(function(){
             number.isDone = true;
             number.save();

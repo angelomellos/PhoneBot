@@ -16,17 +16,13 @@ router.get('/', function(req, res, next) {
 router.get('/twiml',function(req, res, next){
   var twiml = new twilio.TwimlResponse();
   console.log('twiml');
-  twiml.say('Welcome to Twilio!');
-  twiml.say('Please let us know if we can help during your development.', {
-    voice:'woman',
-    language:'en-gb'
-  });
+  twiml.play(req.query.recording);
   res.send(twiml.toString());
 });
 
 router.post('/', function(req,res,next){
   var callDate = new Date(req.body.datetime);
-  Calls.create({number: req.body.arrs[1][2], time: callDate})
+  Calls.create({number: req.body.arrs[1][2], time: callDate, url: url})
   .then(function(calls){
     createCronJob(callDate);
     console.log('should run at ',callDate);
