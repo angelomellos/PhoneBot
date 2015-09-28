@@ -3,14 +3,25 @@ var router = express.Router();
 var path = require('path');
 var mongoose = require('mongoose');
 var Calls = mongoose.model('Calls');
-var client = require('twilio')('AC35326c4f5ae8dd516f973d837fe4d485',
-'c4ac1a1aace3333a3414904c3fa7f918');
+var twilio = require('twilio');
+var client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 var CronJob = require('cron').CronJob;
 var worker = require('../server/bot.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.sendFile('/index.html', { root: path.join(__dirname, '../views') });
+});
+
+router.get('/twiml',function(req, res, next){
+  var twiml = new twilio.TwimlResponse();
+  console.log('twiml');
+  twiml.say('Welcome to Twilio!');
+  twiml.say('Please let us know if we can help during your development.', {
+    voice:'woman',
+    language:'en-gb'
+  });
+  res.send(twiml.toString());
 });
 
 router.post('/', function(req,res,next){

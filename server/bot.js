@@ -1,6 +1,6 @@
 'use strict';
-var client = require('twilio')('AC35326c4f5ae8dd516f973d837fe4d485',
-'c4ac1a1aace3333a3414904c3fa7f918');
+var client = require('twilio')(process.env.TWILIO_ACCOUNT_SID,
+process.env.TWILIO_AUTH_TOKEN);
 var mongoose = require('mongoose');
 var Calls = mongoose.model('Calls');
 
